@@ -1,3 +1,4 @@
+name: typescript-axios
 on:
   push:
     branches:
@@ -15,7 +16,7 @@ jobs:
     - name: Generate
       uses: kpurdon/openapi-generator-action@v0.0.3
       with:
-        args: "generate -i zerotierone-openapi.yaml -g typescript-axios -o zerotierone-api-ts-axios --additional-properties=npmName=johnguan/zerotierone-api-ts-axios"
+        args: "generate -i zerotierone-openapi.yaml -g typescript-axios -o zerotierone-api-ts-axios --additional-properties=npmName=zerotierone-api-ts-axios"
         
     - name: Setup Node
       uses: actions/setup-node@v3
