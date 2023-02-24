@@ -1,2 +1,2 @@
-# zerotierone-openapi
+# ZeroTierOne OpenAPI
 Complete version of ZeroTierOne's OpenAPI
