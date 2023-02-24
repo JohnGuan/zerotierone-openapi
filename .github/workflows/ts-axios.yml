@@ -13,21 +13,25 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-#   - name: Generate
-#     uses: kpurdon/openapi-generator-action@v0.0.3
-#     with:
-#       args: "generate -i zerotierone-openapi.yaml -g typescript-axios -o zerotierone-api-ts-axios --additional-properties=npmName=zerotierone-api-ts-axios"
-
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
         node-version: 16.*
         registry-url: 'https://registry.npmjs.org'
+    
+    - name: Setup openapi-generator-cli
+      run: |
+        npm install @openapitools/openapi-generator-cli -g
         
     - name: Generate
       run: |
-        npm install @openapitools/openapi-generator-cli -g
-        npx openapi-generator-cli generate -i zerotierone-openapi.yaml -g typescript-axios -o zerotierone-api-ts-axios --additional-properties=npmName=zerotierone-api-ts-axios
+        npx openapi-generator-cli generate \
+          -i zerotierone-openapi.yaml \
+          -g typescript-axios \
+          -o zerotierone-api-ts-axios \
+          --additional-properties=npmName=zerotierone-api-ts-axios \
+          --git-user-id JohnGuan \
+          --git-repo-id zerotierone-openapi
         
     - name: Build
       run: |
