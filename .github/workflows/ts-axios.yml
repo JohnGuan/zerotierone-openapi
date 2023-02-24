@@ -27,7 +27,6 @@ jobs:
     - name: Build
       run: |
         cd zerotierone-api-ts-axios
-        sudo npm ci
         sudo npm install
         sudo npm run build
     
