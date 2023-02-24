@@ -26,12 +26,12 @@ jobs:
     - name: Generate
       run: |
         npx openapi-generator-cli generate \
-        --i zerotierone-openapi.yaml \
-        --g typescript-axios \
-        --o zerotierone-api-ts-axios \
-        --additional-properties=npmName=zerotierone-api-ts-axios \
-        --git-user-id JohnGuan \
-        --git-repo-id zerotierone-openapi
+          --i zerotierone-openapi.yaml \
+          --g typescript-axios \
+          --o zerotierone-api-ts-axios \
+          --additional-properties=npmName=zerotierone-api-ts-axios \
+          --git-user-id JohnGuan \
+          --git-repo-id zerotierone-openapi
         
     - name: Build
       run: |
