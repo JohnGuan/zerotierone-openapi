@@ -9,7 +9,7 @@ on:
 jobs:
   main:
     name: Generate, build and publish
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v3
     
@@ -26,14 +26,13 @@ jobs:
         
     - name: Build
       run: |
-        sudo npm install
-        sudo npm run build
+        npm install
+        npm run build
       working-directory: zerotierone-api-ts-axios
     
     - name: Publish
       run: |
-        sudo cp ../.npmrc ./.npmrc 
-        sudo npm publish
+        npm publish
       working-directory: zerotierone-api-ts-axios
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
