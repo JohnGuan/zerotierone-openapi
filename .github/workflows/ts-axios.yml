@@ -32,7 +32,7 @@ jobs:
     - name: Publish
       run: |
         cd zerotierone-api-ts-axios
-        npm publish
+        sudo npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         
