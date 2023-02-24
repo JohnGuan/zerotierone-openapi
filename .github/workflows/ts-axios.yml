@@ -24,7 +24,7 @@ jobs:
         npm install @openapitools/openapi-generator-cli -g
         
     - name: Generate
-      run: |
+      run: >
         npx openapi-generator-cli generate \
           --i zerotierone-openapi.yaml \
           --g typescript-axios \
