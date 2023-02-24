@@ -22,10 +22,12 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-
+        registry-url: 'https://registry.npmjs.org'
+        
     - name: Build
       run: |
         cd zerotierone-api-ts-axios
+        sudo npm ci
         sudo npm install
         sudo npm run build
     
