@@ -20,14 +20,17 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-        
-    - run: cd zerotierone-api-ts-axios
-    
+
     - name: Build
-      run: npm install && npm run build
+      run: |
+        cd zerotierone-api-ts-axios
+        npm install
+        npm run build
     
     - name: Publish
-      run: npm publish
+      run: |
+        cd zerotierone-api-ts-axios
+        npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         
