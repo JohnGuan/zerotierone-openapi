@@ -4,31 +4,39 @@ on:
     - main
   workflow_dispatch:
 jobs:
-  main:
-    name: Generate and publish npm package
+  generate:
+    name: Generate npm package from OpenAPI
     runs-on: ubuntu-18.04
     steps:
-    
     - uses: actions/checkout@v3
-        
-    - name: Validate
-      uses: kpurdon/openapi-generator-action@v0.0.3
-      with:
-        args: "validate -i zerotierone-openapi.yaml"
-        
     - name: Generate
       uses: kpurdon/openapi-generator-action@v0.0.3
       with:
         args: "generate -i zerotierone-openapi.yaml -g typescript-axios -o zerotierone-api-ts-axios --additional-properties=npmName=johnguan/zerotierone-api-ts-axios"
-    
-    
-    - name: Publish
+        
+  build:
+    name: Build npm package
+    needs: [generate]
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Setup
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 16
     - run: cd zerotierone-api-ts-axios
     - run: npm install
     - run: npm run build
+
+  publish:
+    name: Publish npm package
+    needs: [build]
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Setup
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - run: cd zerotierone-api-ts-axios
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
