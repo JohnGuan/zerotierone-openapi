@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: ZeroTierOne Service API
-  version: 1.0.0
+  version: 1.0.1
   description: |
     <p><b>
       Notes: 
@@ -157,6 +157,7 @@ paths:
       tags:
         - controller
       summary: Delete a Network
+      operationId: deleteControllerNetwork
       parameters:
         - name: networkID
           description: ID of the network.
