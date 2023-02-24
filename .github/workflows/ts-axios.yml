@@ -2,6 +2,7 @@ on:
   push:
     branches:
     - main
+    paths:
     - 'zerotierone-openapi.yaml'
   workflow_dispatch:
 jobs:
@@ -24,8 +25,8 @@ jobs:
     - name: Build
       run: |
         cd zerotierone-api-ts-axios
-        npm install
-        npm run build
+        sudo npm install
+        sudo npm run build
     
     - name: Publish
       run: |
