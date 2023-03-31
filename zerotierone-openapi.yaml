@@ -22,11 +22,30 @@ info:
     <p>
       The token can be found in: 
       <ul>
-        <li>
-          Mac: ~/Library/Application Support/ZeroTier/authtoken.secret
+        <li> Mac:
+          <ul>
+            <li> Root:
+              <ul>
+                <li>
+                  /Library/Application Support/ZeroTier/One/authtoken.secret
+                </li>
+              </ul>
+            </li>
+            <li> User:
+              <ul>
+                <li>
+                  ~/Library/Application Support/ZeroTier/One/authtoken.secret
+                </li>
+                or
+                <li>
+                  ~/Library/Application Support/ZeroTier/authtoken.secret
+                </li>
+              </ul>
+            </li>
+          </ul>
         </li>
         <li>
-          Windows: \ProgramData\ZeroTier\One
+          Windows: %ProgramData%\ZeroTier\One
         </li>
         <li>
           Linux: /var/lib/zerotier-one
