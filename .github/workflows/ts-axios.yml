@@ -32,6 +32,11 @@ jobs:
           --additional-properties=npmName=zerotierone-api-ts-axios \
           --git-user-id JohnGuan \
           --git-repo-id zerotierone-openapi
+          
+        cat << EOF | cat - zerotierone-api-ts-axios/README.md > temp && mv temp zerotierone-api-ts-axios/README.md
+        > 📄 This document is auto-generated. For detailed information, please refer to the [GitHub repo](https://github.com/JohnGuan/zerotierone-openapi).
+
+        EOF
         
     - name: Build
       run: |
